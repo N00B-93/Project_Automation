@@ -68,10 +68,10 @@ case $choice1 in
 	0 )
 		exit ;;
 	1 )		
-		git add $file_name
+		git add .
 		read -p "Enter your commit message: " commit_message
 		git commit -m "$commit_message"
-		git push "$file_name" ;;
+		git push ;;
 	* )
 		echo "Enter a correct option!!!"
 		exit;;
