@@ -16,66 +16,74 @@
 
 
 ###############################################################################
+echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
+echo -e "\t\t\t\t\tWELCOME TO AUTOMATION.SH\n"
+echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
 
-#Reads in the name of the file the user wants to create
+echo "My name is JARVIS, how can i help you???"
+echo -e "To assist with your Project, press 1\nTO Exit, press 0."
+read option
 
-read -p "Input the file name: " file_name
-
-#Creates and open the file in VIM editor
-
-vim "$file_name"
-
-#Asks the user whether he/she wants to compile or execute the file created
-echo
-echo  "Do you want to Execute or Compile and Execute $file_name???"
-echo "Press 1 to compile and execute"
-echo "press 2 for execution only"
-read choice0
-echo
-case $choice0 in
-
-	1 )
-		read -p "Input object file name: " object_file_name
-        	gcc $file_name -o $object_file_name
-		sudo chmod +x $object_file_name
-		echo
-		echo "@@@@@@@@@@@@@@@Program OUtput@@@@@@@@@@@@@@@"
-		echo
-                ./$object_file_name
-		echo
-		echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-		echo;;
-	2 )
-		sudo chmod +x $file_name
-		echo
-		echo "@@@@@@@@@@@@@@@Program Output@@@@@@@@@@@@@@"
-		echo
-		./$file_name
-		echo
-		echo "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
-		echo;;
-	* )
-		echo "Enter correct choice!!!"
-		exit 
-esac
-
-#Asks the user whether he/she wants to push the file to GitHub
-
-echo "Do you want to push $file_name to GitHub??"
-read -p "Enter 1 for YES and 0 for NO: " choice1
-
-case $choice1 in
+case $option in
 	0 )
-		exit ;;
-	1 )		
-		git add $file_name
-		read -p "Enter your commit message: " commit_message
-		git commit -m "$commit_message"
-		git push "$file_name" ;;
-	* )
-		echo "Enter a correct option!!!"
 		exit;;
-esac
+	1 )
+		
+		#Reads in the name of the file the user wants to create
 
+		read -p "Please enter the file name: " file_name
+
+		#Creates and open the file in VIM editor
+
+		vim "$file_name"
+
+		#Asks the user whether he/she wants to compile or execute the file created
+		echo
+		echo  "Do you want to Execute or Compile and Execute $file_name???"
+		echo "Press 1 to compile and execute"
+		echo "press 2 for execution only"
+		read choice0
+		echo
+		case $choice0 in
+
+			1 )
+				read -p "Please input object file name: " object_file_name
+        			gcc $file_name -o $object_file_name
+				sudo chmod +x $object_file_name
+				echo
+				echo -e  "@@@@@@@@@@@@@@@ Program Output @@@@@@@@@@@@@@@\n"
+                		./$object_file_name
+				echo
+				echo -e "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";;
+			2 )
+				sudo chmod +x $file_name
+				echo
+				echo -e "@@@@@@@@@@@@@@@ Program Output @@@@@@@@@@@@@@\n"
+				./$file_name
+				echo
+				echo -e "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n";;
+			* )
+				echo "please enter a correct choice!!!"
+				exit;; 
+		esac
+
+		#Asks the user whether he/she wants to push the file to GitHub
+
+		echo "Do you want to push $file_name to GitHub??"
+		read -p "Enter 1 for YES and 0 for NO: " choice1
+
+		case $choice1 in
+			0 )
+				exit ;;
+			1 )		
+				git add .
+				read -p "Please enter your commit message: " commit_message
+				git commit -m "$commit_message"
+				git push ;;
+			* )
+				echo "Please enter a correct option!!!"
+				exit;;
+		esac
+esac
 #End of script
 #############################################################################
