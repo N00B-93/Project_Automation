@@ -18,9 +18,9 @@
 ###############################################################################
 echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
 echo -e "\t\t\t\t\tWELCOME TO AUTOMATION.SH\n"
-echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
+echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n\n"
 
-echo "My name is JARVIS, how can i help you???"
+echo -e "Hi,\nMy name is \$N00B, how can i help you???"
 echo -e "To assist with your Project, press 1\nTO Exit, press 0."
 read option
 
@@ -73,13 +73,19 @@ case $option in
 		read -p "Please enter 1 for YES and 0 for NO: " choice1
 
 		case $choice1 in
-			0 )
+			0 )	echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
+				echo -e "\t\t\t\t\tTHANKS FOR USING AUTOMATION.SH\n"
+				echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"
 				exit ;;
 			1 )		
 				git add .
 				read -p "Please enter your commit message: " commit_message
 				git commit -m "$commit_message"
-				git push ;;
+				git push
+				echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
+                                echo -e "\t\t\t\t\tTHANKS FOR USING AUTOMATION.SH\n"
+                                echo -e "\t\t\t\t@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@";;
+
 			* )
 				echo "Please enter a correct option!!!"
 				exit;;
