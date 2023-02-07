@@ -70,7 +70,7 @@ case $option in
 		#Asks the user whether he/she wants to push the file to GitHub
 
 		echo "Do you want to push $file_name to GitHub??"
-		read -p "Enter 1 for YES and 0 for NO: " choice1
+		read -p "Please enter 1 for YES and 0 for NO: " choice1
 
 		case $choice1 in
 			0 )
